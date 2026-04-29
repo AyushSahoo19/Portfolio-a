@@ -1,5 +1,5 @@
 ---
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 
 const applications = [
   {
@@ -115,10 +115,14 @@ const subjects = Array.from(new Set(applications.map((app) => app.subject)));
         >
           {/* Image */}
           <div class={`relative ${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
-            <div class="relative overflow-hidden rounded-2xl border border-border/50 group-hover:border-primary/50 transition-all duration-300">
-              <img src={app.image || "/placeholder.svg"} alt={app.title} class="w-full h-auto" />
-              <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
+            <a href={app.live} target="_blank" rel="noopener noreferrer" class="block">
+              <div class="relative overflow-hidden rounded-2xl border border-border/50 group-hover:border-primary/50 transition-all duration-300">
+                <img src={app.image || "/placeholder.svg"} alt={app.title} class="w-full h-auto transform group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="px-4 py-2 bg-primary text-primary-foreground rounded-full text-xs font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Launch Project</span>
+                </div>
+              </div>
+            </a>
           </div>
 
           {/* Content */}
@@ -134,7 +138,12 @@ const subjects = Array.from(new Set(applications.map((app) => app.subject)));
                 Launch App <ExternalLink className="h-3 w-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
               </a>
             </div>
-            <h3 class="text-3xl font-bold mb-4 group-hover:text-primary transition-colors">{app.title}</h3>
+            <a href={app.live} target="_blank" rel="noopener noreferrer" class="inline-block">
+              <h3 class="text-3xl font-bold mb-4 group-hover:text-primary transition-colors flex items-center gap-2">
+                {app.title}
+                <ArrowUpRight className="h-6 w-6 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-primary" />
+              </h3>
+            </a>
             <p class="text-muted-foreground mb-6 leading-relaxed">{app.description}</p>
 
             {/* Problem & Solution */}
