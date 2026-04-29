@@ -92,7 +92,9 @@ export function AboutSection() {
           <p>
             I'm a <span className="text-foreground font-semibold">Software Engineer at Tata Steel</span> and the{" "}
             <span className="text-foreground font-semibold underline decoration-primary/30 hover:decoration-primary transition-all">
-              <a href="https://eng-10-x.vercel.app/" target="_blank" rel="noopener noreferrer">Founder of Eng-10X</a>
+              <a href="https://eng-10-x.vercel.app/" target="_blank" rel="noopener noreferrer">
+                Founder of <span className="text-primary">Eng-10X</span>
+              </a>
             </span>
             , deeply passionate about <span className="italic text-foreground">pushing the boundaries</span> of what's possible with technology.
           </p>
