@@ -9,15 +9,17 @@ import { GithubSection } from '../components/github-section';
 import ApplicationsSection from '../components/ApplicationsSection.astro';
 import { ToolsSection } from '../components/tools-section';
 import { ContactSection } from '../components/contact-section';
+import WorkProjectsSlider from '../components/WorkProjectsSlider.astro';
 ---
 
 <Layout>
 	<div class="flex min-h-screen">
 		<Sidebar client:load />
-		<main class="flex-1 lg:ml-64">
+		<main class="flex-1 lg:ml-64 overflow-x-hidden">
 			<HeroSection client:visible />
 			<AboutSection client:visible />
 			<ExperienceSection client:visible />
+			<WorkProjectsSlider />
 			<ProjectsShowcaseSection client:load />
 			<GithubSection client:visible />
 			<ApplicationsSection />

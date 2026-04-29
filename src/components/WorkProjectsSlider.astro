@@ -1,0 +1,161 @@
+---
+import { TrendingUp, ShieldCheck, Zap, BarChart3, Globe, Settings, Calculator, ArrowRight, ArrowLeft } from 'lucide-react';
+
+const projects = [
+  {
+    title: "Haul Road Optimization Engine",
+    subtitle: "Automated Infrastructure Monitoring",
+    description: "Automated haul road undulation and steep gradient detection system. Centralized cloud deployment optimizing critical mine transportation infrastructure.",
+    impact: "₹1 - 4 Crore Saved",
+    impactDetail: "Projected savings over 3 years through reduced vehicle wear and optimized cycle times.",
+    tech: ["Python", "GCP", "Automation"],
+    image: "/haul_road_viz.png",
+    metric: "+240% Efficiency",
+    icon: Globe
+  },
+  {
+    title: "HEMM Maintenance Command Center",
+    subtitle: "Heavy Equipment Asset Management",
+    description: "Real-time updates for Shovels, Dumpers, Loaders, and Drills. Tracking maintenance records, downtime, and MTTR to optimize workforce and planning.",
+    impact: "Optimized MTTR",
+    impactDetail: "Streamlined workmen allocation and timely maintenance planning, significantly reducing machinery downtime.",
+    tech: ["Python", "Data Dashboard", "HEMM Systems"],
+    image: "/maintenance_viz.png",
+    metric: "Real-time MTTR",
+    icon: Settings
+  },
+  {
+    title: "Contractual Reconciliation Engine",
+    subtitle: "Financial & Material Procurement",
+    description: "Tracking slab costs as per contract for HEMM spares. Facilitates yearly planning, material availability checks, and future procurement negotiations.",
+    impact: "Precision Planning",
+    impactDetail: "Helps in high-level negotiations and future spare system planning through precise material forecasting.",
+    tech: ["Finance Tech", "Data Modeling", "Planning"],
+    image: "/reconciliation_viz.png",
+    metric: "Slab Cost Tracking",
+    icon: Calculator
+  }
+];
+---
+
+<section id="tata-steel-projects" class="py-16 bg-background relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="mb-12 space-y-6">
+      <div>
+        <p class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-3">Enterprise Deep Dives</p>
+        <h2 class="text-4xl lg:text-5xl font-black tracking-tighter">
+          High-Impact Work at <br />
+          <span class="text-primary italic">Tata Steel</span>
+        </h2>
+      </div>
+      
+      <div class="flex items-center gap-4">
+        <button id="prev-btn" class="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/5 transition-all text-muted-foreground hover:text-primary">
+          <ArrowLeft class="h-5 w-5" />
+        </button>
+        <div class="w-12 h-px bg-border"></div>
+        <button id="next-btn" class="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/5 transition-all text-muted-foreground hover:text-primary">
+          <ArrowRight class="h-5 w-5" />
+        </button>
+      </div>
+    </div>
+
+    {/* Slider Container */}
+    <div id="slider-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-12 transition-all duration-500 ease-in-out scroll-smooth max-w-full">
+      {projects.map((project, index) => (
+        <div class="min-w-[300px] md:min-w-[45%] lg:min-w-[800px] snap-center">
+          <div class="bg-card border border-border/50 rounded-3xl overflow-hidden shadow-xl hover:border-primary/30 transition-all duration-300 group h-full">
+            <div class="grid md:grid-cols-2 gap-0 h-full">
+              
+              {/* Content */}
+              <div class="p-8 lg:p-10 flex flex-col h-full space-y-6">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-6">
+                    <div class="p-2 bg-primary/10 rounded-lg text-primary">
+                      <project.icon class="h-5 w-5" />
+                    </div>
+                    <span class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{project.subtitle}</span>
+                  </div>
+                  
+                  <h3 class="text-2xl lg:text-3xl font-black mb-4 group-hover:text-primary transition-colors">{project.title}</h3>
+                  <p class="text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">{project.description}</p>
+                  
+                  <div class="p-5 rounded-2xl bg-primary/5 border border-primary/20 relative overflow-hidden min-h-[120px] flex flex-col justify-center">
+                    <p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Impact</p>
+                    <p class="text-2xl font-black text-foreground">{project.impact}</p>
+                    <p class="text-[10px] text-muted-foreground mt-2 leading-relaxed">{project.impactDetail}</p>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-border/50">
+                  {project.tech.map(tech => (
+                    <span class="px-3 py-1 rounded-lg bg-background border border-border text-[9px] font-bold text-muted-foreground uppercase tracking-widest">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Image */}
+              <div class="relative h-[250px] md:h-auto bg-muted overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  class="absolute inset-0 w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-card via-transparent to-transparent hidden md:block"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:hidden"></div>
+                
+                <div class="absolute top-6 right-6">
+                  <div class="px-4 py-2 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase tracking-widest">
+                    {project.metric}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Progress Bar */}
+    <div class="mt-8">
+      <div class="h-px bg-border relative overflow-hidden">
+        <div id="scroll-progress" class="absolute inset-y-0 left-0 bg-primary w-0 transition-all duration-300"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<script>
+  const container = document.getElementById('slider-container');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const progress = document.getElementById('scroll-progress');
+
+  if (container) {
+    const scrollAmount = container.clientWidth * 0.8;
+
+    const scrollNext = () => container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    const scrollPrev = () => container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+
+    nextBtn?.addEventListener('click', scrollNext);
+    prevBtn?.addEventListener('click', scrollPrev);
+
+    container.addEventListener('scroll', () => {
+      const scrollPercentage = (container.scrollLeft / (container.scrollWidth - container.clientWidth)) * 100;
+      if (progress) progress.style.width = `${scrollPercentage}%`;
+    });
+  }
+</script>
