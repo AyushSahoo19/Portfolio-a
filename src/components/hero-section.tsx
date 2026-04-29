@@ -13,31 +13,24 @@ import { ThemeToggle } from "@/components/theme-toggle"
 
 const webApplications = [
   {
-    name: "AI Research Dashboard",
-    description: "Advanced analytics platform for AI research",
-    url: "https://ai-research-dashboard.vercel.app",
-    category: "AI & ML",
+    name: "Lumina",
+    description: "High-end editorial-style link discovery workspace",
+    url: "https://lumina-six-xi.vercel.app/",
+    category: "Productivity",
     icon: Code2,
   },
   {
-    name: "Quantum Circuit Visualizer",
-    description: "Interactive quantum computing simulator",
-    url: "https://quantum-viz.vercel.app",
-    category: "Quantum Computing",
+    name: "Eng-10X",
+    description: "Advanced engineering lifecycle educational platform",
+    url: "https://eng-10-x.vercel.app/",
+    category: "Education",
     icon: Globe,
   },
   {
-    name: "Startup Analytics Platform",
-    description: "Comprehensive startup data analysis tool",
-    url: "https://startup-analytics.vercel.app",
-    category: "Analytics",
-    icon: Database,
-  },
-  {
-    name: "Portfolio Tracker",
-    description: "Real-time investment portfolio management",
-    url: "https://portfolio-tracker.vercel.app",
-    category: "Finance",
+    name: "LibOS",
+    description: "Autonomous coding and engineering playbook repository",
+    url: "https://lib-os.vercel.app/",
+    category: "DevOS",
     icon: Database,
   },
 ]

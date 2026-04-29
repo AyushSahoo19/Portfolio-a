@@ -21,8 +21,8 @@ export function ContactSection() {
             </div>
             <h3 className="text-xl font-bold mb-2">Email</h3>
             <p className="text-muted-foreground mb-4">For professional inquiries and collaborations</p>
-            <a href="mailto:ayush.sahoo@example.com" className="text-primary hover:underline font-semibold">
-              ayush.sahoo@example.com
+            <a href="mailto:ayush.kumar.sahoo10@gmail.com" className="text-primary hover:underline font-semibold">
+              ayush.kumar.sahoo10@gmail.com
             </a>
           </div>
 
@@ -40,7 +40,7 @@ export function ContactSection() {
           <h3 className="text-lg font-bold mb-6">Connect with me</h3>
           <div className="flex gap-4 justify-center">
             <a
-              href="https://github.com"
+              href="https://github.com/AyushSahoo19"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-border rounded-full hover:border-primary hover:text-primary transition-all duration-300 bg-card/50"
@@ -49,7 +49,7 @@ export function ContactSection() {
               <span>GitHub</span>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/ayush-kumar-sahoo-984a65307/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-border rounded-full hover:border-primary hover:text-primary transition-all duration-300 bg-card/50"
