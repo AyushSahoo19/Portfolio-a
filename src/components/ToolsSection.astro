@@ -1,0 +1,114 @@
+---
+import { Code2, Database, Cloud, Brain, Atom, Server, Globe, ChevronDown } from 'lucide-react';
+
+const toolCategories = [
+  {
+    name: "AI Agents & LLMs",
+    icon: Brain,
+    items: [
+      { name: "Claude Code", description: "Agentic coding assistant by Anthropic" },
+      { name: "Hugging Face", description: "The home of machine learning models and datasets" },
+      { name: "Higgsfield AI", description: "Advanced video generation and AI creativity platform" },
+      { name: "LLM Stack", description: "Experience with GPT-4, Claude 3.5 Sonnet, and Gemini Pro" },
+      { name: "AI Agent Frameworks", description: "Building autonomous agents with LangGraph and CrewAI" },
+    ],
+  },
+  {
+    name: "Design & Creative",
+    icon: Globe,
+    items: [
+      { name: "Canva", description: "Modern design platform for rapid asset creation" },
+      { name: "Dribbble", description: "Design inspiration and showcase platform" },
+      { name: "Figma", description: "Collaborative interface design tool" },
+    ],
+  },
+  {
+    name: "Backend & Systems",
+    icon: Server,
+    items: [
+      { name: "Java", description: "Robust, object-oriented enterprise language" },
+      { name: "RAG Systems", description: "Retrieval-Augmented Generation architectures" },
+      { name: "Postman", description: "API development and testing platform" },
+      { name: "Agentic AI Stacks", description: "Full-stack development for agentic systems" },
+    ],
+  },
+  {
+    name: "Languages & Core",
+    icon: Code2,
+    items: [
+      { name: "Python", description: "The primary language for AI and Data Science" },
+      { name: "TypeScript", description: "Type-safe development for modern web apps" },
+    ],
+  },
+  {
+    name: "Databases & Storage",
+    icon: Database,
+    items: [
+      { name: "Pinecone", description: "Vector database for AI applications" },
+      { name: "PostgreSQL", description: "Advanced relational database system" },
+    ],
+  },
+];
+---
+
+<section id="tools" class="min-h-screen flex items-center px-6 lg:px-12 py-24">
+  <div class="max-w-6xl w-full">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div>
+        <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-white tracking-tight">
+          Mastering the <span class="text-primary italic">Modern Stack</span>
+        </h2>
+        <p class="text-gray-400 text-lg max-w-xl leading-relaxed">
+          A curated collection of technologies I use to build autonomous agents, 
+          high-performance backends, and editorial-grade user interfaces.
+        </p>
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full">
+        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+        <span class="text-xs font-medium text-gray-300 uppercase tracking-widest">Always Learning</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {toolCategories.map((category, index) => {
+        const Icon = category.icon;
+        return (
+          <div 
+            class={`group relative p-8 rounded-3xl border border-white/10 bg-white/2 hover:bg-white/5 transition-all duration-500 flex flex-col justify-between overflow-hidden ${
+              index === 0 ? "md:col-span-2 md:row-span-2" : ""
+            } ${index === 2 ? "md:row-span-2" : ""}`}
+          >
+            {/* Background Glow */}
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-[100px] group-hover:bg-primary/20 transition-all duration-500" />
+            
+            <div>
+              <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20">
+                  <Icon class="h-6 w-6 text-primary" />
+                </div>
+                <h3 class="text-2xl font-bold text-white">{category.name}</h3>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-8">
+                {category.items.map((tool) => (
+                  <div 
+                    class="px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-sm text-gray-300 hover:border-primary/50 hover:text-white transition-all cursor-default"
+                    title={tool.description}
+                  >
+                    {tool.name}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="mt-auto">
+              <p class="text-xs font-semibold uppercase tracking-widest text-primary/50 group-hover:text-primary transition-colors">
+                {category.items.length} Tools Mastered
+              </p>
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  </div>
+</section>

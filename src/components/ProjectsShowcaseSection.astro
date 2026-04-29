@@ -1,0 +1,295 @@
+---
+import { ChevronDown, Github, Code2, Lightbulb, Wrench, CheckCircle, Globe } from 'lucide-react';
+
+const projects = [
+  {
+    id: 1,
+    title: "Lumina",
+    description: "A high-end, editorial-style link-saving dashboard and workspace designed for curated discovery and minimalist digital organization.",
+    category: "Web Application",
+    domain: "Productivity",
+    status: "Live & Deployed",
+    stages: ["Idea", "Research", "Development", "Testing"],
+    currentStage: 3,
+    tools: ["Vanilla JS", "Tailwind CSS", "HTML5", "Lucide Icons", "Thum.io API"],
+    problemSolved: "Organizing fragmented digital resources into a cohesive, visually stunning dashboard with real-time link previews.",
+    documentation: "Fully responsive architecture with dynamic content rendering and category-based filtering.",
+    github: "https://github.com/AyushSahoo19/Lumina",
+    url: "https://lumina-six-xi.vercel.app/",
+    features: [
+      "Editorial-style sidebar navigation",
+      "Dynamic thumbnail generation for links",
+      "Dual-layer filtering (Category + Sub-category)",
+      "Ultra-minimalist Bento grid layout",
+    ],
+  },
+  {
+    id: 2,
+    title: "Eng-10X",
+    description: "An advanced engineering educational platform focused on mastering the software development lifecycle and modern tech stacks.",
+    category: "Educational Platform",
+    domain: "Engineering Education",
+    status: "Live & Deployed",
+    stages: ["Idea", "Research", "Development", "Testing"],
+    currentStage: 3,
+    tools: ["Next.js 15", "React 19", "Tailwind CSS 4.0", "Framer Motion", "Vercel"],
+    problemSolved: "Providing a structured roadmap for engineers to master high-level system design and agentic AI implementation.",
+    documentation: "Comprehensive guides on software engineering life-cycles and veteran-led deep dives.",
+    github: "https://github.com/AyushSahoo19/ENG-10X",
+    url: "https://eng-10-x.vercel.app/",
+    features: [
+      "Lifecycle matrix implementation",
+      "High-density 'Engineering Core' matrix",
+      "Modular handbook structure",
+      "Advanced motion design and transitions",
+    ],
+  },
+  {
+    id: 3,
+    title: "LibOS",
+    description: "An autonomous coding and engineering playbook repository integrated with high-signal assets for rapid development.",
+    category: "DevOS / Playbook",
+    domain: "Autonomous Systems",
+    status: "Live & Deployed",
+    stages: ["Idea", "Research", "Development", "Testing"],
+    currentStage: 3,
+    tools: ["Next.js", "Radix UI", "Tailwind CSS", "Lucide Icons", "GitHub API"],
+    problemSolved: "Centralizing engineering playbooks and marketing assets for rapid product launches and developer efficiency.",
+    documentation: "Integrated G-Stack assets and autonomous coding engineering playbooks.",
+    github: "https://github.com/AyushSahoo19/LibOS",
+    url: "https://lib-os.vercel.app/",
+    features: [
+      "Autonomous coding playbook integration",
+      "Marketing asset management",
+      "G-Stack repository synchronization",
+      "Product Hunt launch optimization kit",
+    ],
+  },
+];
+
+const domains = ["All", "Productivity", "Engineering Education", "Autonomous Systems"];
+
+const stageIcons: any = {
+  Idea: Lightbulb,
+  Research: Code2,
+  Development: Wrench,
+  Testing: CheckCircle,
+};
+---
+
+<section id="projects-showcase" class="min-h-screen flex items-center px-6 lg:px-12 py-24">
+  <div class="max-w-5xl w-full">
+    <h2 class="text-3xl font-bold mb-4 text-foreground relative inline-block">
+      All Projects
+      <span class="absolute -bottom-2 left-0 w-20 h-0.5 bg-primary"></span>
+    </h2>
+    <p class="text-muted-foreground text-sm mb-8">
+      Detailed breakdown of projects with code, documentation, and development stages
+    </p>
+
+    <div class="mb-8 flex flex-wrap items-center gap-2">
+      <span class="text-xs font-semibold text-muted-foreground uppercase">Filter by domain:</span>
+      <div class="flex flex-wrap gap-2">
+        {domains.map((domain) => (
+          <button
+            class={`domain-filter-btn text-xs px-3 py-1.5 rounded-full transition-all ${
+              domain === "All"
+                ? "bg-primary text-primary-foreground font-semibold"
+                : "bg-card text-muted-foreground border border-border hover:border-primary/30"
+            }`}
+            data-domain={domain}
+          >
+            {domain}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="space-y-6">
+      {projects.map((project) => (
+        <div
+          class="project-card border border-border/50 rounded-lg overflow-hidden hover:border-primary/30 transition-colors"
+          data-domain={project.domain}
+        >
+          {/* Project Header */}
+          <button
+            class="project-toggle-btn w-full p-6 flex items-start justify-between hover:bg-muted/50 transition-colors"
+            data-id={project.id}
+          >
+            <div class="flex-1 text-left">
+              <div class="flex items-center gap-3 mb-2">
+                <h3 class="text-lg font-bold text-foreground">{project.title}</h3>
+                <span class="text-xs px-2 py-1 rounded bg-primary/20 text-primary border border-primary/30">
+                  {project.category}
+                </span>
+              </div>
+              <p class="text-sm text-muted-foreground">{project.description}</p>
+            </div>
+            <ChevronDown
+              class="chevron-icon h-5 w-5 text-primary transition-transform flex-shrink-0 ml-4"
+            />
+          </button>
+
+          {/* Project Details */}
+          <div class="project-details hidden border-t border-border/50 p-6 bg-card/50 space-y-6">
+            {/* Development Stages */}
+            <div>
+              <h4 class="text-sm font-semibold text-foreground mb-4">Development Stages</h4>
+              <div class="flex items-center gap-2">
+                {project.stages.map((stage, index) => {
+                  const Icon = stageIcons[stage];
+                  const isCompleted = index < project.currentStage;
+                  const isCurrent = index === project.currentStage;
+                  return (
+                    <div class="flex items-center">
+                      <div
+                        class={`flex items-center justify-center w-8 h-8 rounded-full border transition-all ${
+                          isCompleted || isCurrent
+                            ? "bg-primary/20 border-primary text-primary"
+                            : "border-border text-muted-foreground"
+                        }`}
+                      >
+                        <Icon class="h-4 w-4" />
+                      </div>
+                      {index < project.stages.length - 1 && (
+                        <div class={`h-0.5 w-8 mx-1 ${isCompleted ? "bg-primary" : "bg-border"}`} />
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* Problem & Solution */}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="text-xs font-semibold text-muted-foreground uppercase mb-2">Problem Solved</h4>
+                <p class="text-sm text-foreground/80">{project.problemSolved}</p>
+              </div>
+              <div>
+                <h4 class="text-xs font-semibold text-muted-foreground uppercase mb-2">Status</h4>
+                <p class="text-sm text-primary font-medium">{project.status}</p>
+              </div>
+            </div>
+
+            {/* Tools & Technologies */}
+            <div>
+              <h4 class="text-xs font-semibold text-muted-foreground uppercase mb-3">Tools & Technologies</h4>
+              <div class="flex flex-wrap gap-2">
+                {project.tools.map((tool) => (
+                  <span
+                    class="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Features */}
+            <div>
+              <h4 class="text-xs font-semibold text-muted-foreground uppercase mb-3">Key Features</h4>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                {project.features.map((feature) => (
+                  <li class="text-sm text-foreground/80 flex items-start gap-2">
+                    <span class="text-primary mt-1">•</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Front Page Showcase */}
+            <div class="relative aspect-video w-full rounded-lg overflow-hidden border border-border group-hover:border-primary/50 transition-all">
+              <img 
+                src={`https://s.wordpress.com/mshots/v1/${project.url}?w=1200`} 
+                alt={`${project.title} Preview`}
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <p class="text-foreground text-xs font-medium">Click View Live Site to explore</p>
+              </div>
+            </div>
+
+            {/* Documentation & Code */}
+            <div>
+              <h4 class="text-xs font-semibold text-muted-foreground uppercase mb-3">Links & Documentation</h4>
+              <p class="text-sm text-foreground/80 mb-4">{project.documentation}</p>
+              <div class="flex flex-wrap gap-3">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-bold"
+                >
+                  <Globe class="h-4 w-4" />
+                  View Live Site
+                </a>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20 transition-colors text-sm font-medium"
+                >
+                  <Github class="h-4 w-4" />
+                  GitHub Repo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggleBtns = document.querySelectorAll('.project-toggle-btn');
+  const filterBtns = document.querySelectorAll('.domain-filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  // Accordion Logic
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const details = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('.chevron-icon');
+      
+      const isHidden = details.classList.contains('hidden');
+      
+      // Close others (optional, matching previous React behavior)
+      // document.querySelectorAll('.project-details').forEach(d => d.classList.add('hidden'));
+      // document.querySelectorAll('.chevron-icon').forEach(c => c.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        details.classList.remove('hidden');
+        chevron?.classList.add('rotate-180');
+      } else {
+        details.classList.add('hidden');
+        chevron?.classList.remove('rotate-180');
+      }
+    });
+  });
+
+  // Filter Logic
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const domain = btn.getAttribute('data-domain');
+      
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-primary', 'text-black', 'font-semibold');
+        b.classList.add('bg-white/5', 'text-gray-300', 'border', 'border-white/10');
+      });
+      btn.classList.add('bg-primary', 'text-black', 'font-semibold');
+      btn.classList.remove('bg-white/5', 'text-gray-300', 'border', 'border-white/10');
+
+      projectCards.forEach(card => {
+        const cardDomain = card.getAttribute('data-domain');
+        if (domain === 'All' || cardDomain === domain) {
+          (card as HTMLElement).style.display = 'block';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

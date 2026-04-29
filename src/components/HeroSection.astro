@@ -1,0 +1,146 @@
+---
+import { Button } from './ui/button';
+import { ChevronDown, ExternalLink, Code2, Globe, Database } from 'lucide-react';
+import { ThemeToggle } from './theme-toggle';
+
+const webApplications = [
+  {
+    name: "AI Research Dashboard",
+    description: "Advanced analytics platform for AI research",
+    url: "https://ai-research-dashboard.vercel.app",
+    category: "AI & ML",
+    icon: Code2,
+  },
+  {
+    name: "Quantum Circuit Visualizer",
+    description: "Interactive quantum computing simulator",
+    url: "https://quantum-viz.vercel.app",
+    category: "Quantum Computing",
+    icon: Globe,
+  },
+  {
+    name: "Startup Analytics Platform",
+    description: "Comprehensive startup data analysis tool",
+    url: "https://startup-analytics.vercel.app",
+    category: "Analytics",
+    icon: Database,
+  },
+  {
+    name: "Portfolio Tracker",
+    description: "Real-time investment portfolio management",
+    url: "https://portfolio-tracker.vercel.app",
+    category: "Finance",
+    icon: Database,
+  },
+];
+---
+
+<section id="intro" class="min-h-screen flex items-center justify-center px-6 lg:px-12 relative">
+  {/* Theme Toggle Button */}
+  <div class="absolute top-6 right-6 z-10">
+    <ThemeToggle client:load />
+  </div>
+  
+  <div class="max-w-4xl w-full">
+    <h1 class="text-6xl lg:text-7xl font-bold mb-8 leading-tight text-white">
+      I turn ideas into{" "}
+      <span class="relative inline-block">
+        <span class="italic text-primary/90">meaningful</span>
+        <span class="absolute bottom-2 left-0 w-full h-1 bg-primary/30"></span>
+      </span>{" "}
+      design solutions that{" "}
+      <span class="relative inline-block">
+        inspire
+        <span class="absolute bottom-2 left-0 w-full h-1 bg-primary"></span>
+      </span>
+      .
+    </h1>
+
+    <p class="text-xl text-gray-400 mb-12 max-w-2xl leading-relaxed">
+      Software Engineer at <span class="text-white font-semibold">Tata Steel</span>. Building the future through{" "}
+      <span class="italic text-white">AI</span>, <span class="italic text-white">quantum computing</span>,
+      and <span class="italic text-white">full-stack innovation</span>.
+    </p>
+
+    <div class="flex flex-wrap gap-4 relative">
+      <div class="group relative">
+        <button
+          class="bg-primary text-black hover:bg-primary/90 rounded-full px-8 py-3 flex items-center gap-2 font-bold transition-all"
+          id="work-dropdown-btn"
+        >
+          View my work
+          <ChevronDown class="h-4 w-4" />
+        </button>
+        
+        {/* Dropdown Menu (Simplified for Astro) */}
+        <div 
+          id="work-dropdown-content"
+          class="hidden absolute left-0 top-full mt-2 w-80 bg-card border border-border/50 backdrop-blur-sm rounded-2xl shadow-2xl z-20 overflow-hidden"
+        >
+          <div class="p-4">
+            <h3 class="text-sm font-semibold text-foreground mb-1">Web Applications</h3>
+            <p class="text-xs text-muted-foreground mb-4">
+              Explore my live web applications and projects
+            </p>
+            
+            <div class="space-y-1">
+              {webApplications.map((app) => (
+                <a
+                  href={app.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-start gap-3 p-3 rounded-xl hover:bg-accent/50 transition-all"
+                >
+                  <div class="mt-1">
+                    <app.icon class="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="text-sm font-medium text-foreground">{app.name}</span>
+                      <ExternalLink class="h-3 w-3 text-muted-foreground" />
+                    </div>
+                    <p class="text-[10px] text-muted-foreground mb-2 line-clamp-1">{app.description}</p>
+                    <span class="text-[9px] px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                      {app.category}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-border/50">
+              <button 
+                class="flex items-center gap-3 w-full p-3 rounded-xl hover:bg-accent/50 transition-all"
+                onclick="document.getElementById('projects-showcase')?.scrollIntoView({ behavior: 'smooth' })"
+              >
+                <Code2 class="h-4 w-4 text-primary" />
+                <span class="text-sm font-medium text-foreground">View All Projects</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <button
+        class="rounded-full px-8 py-3 border border-white/20 text-white hover:border-primary hover:text-primary bg-transparent font-bold transition-all"
+        onclick="document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })"
+      >
+        Get in touch
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const btn = document.getElementById('work-dropdown-btn');
+  const content = document.getElementById('work-dropdown-content');
+
+  btn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    content?.classList.toggle('hidden');
+  });
+
+  document.addEventListener('click', () => {
+    content?.classList.add('hidden');
+  });
+</script>

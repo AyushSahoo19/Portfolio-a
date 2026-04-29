@@ -1,0 +1,70 @@
+---
+import { Button } from './ui/button';
+import { Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
+---
+
+<section id="contact" class="py-20 px-6 lg:px-16 bg-background border-t border-border/30">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="text-primary text-sm font-medium mb-2 tracking-wider uppercase">Contact</p>
+        <h2 class="text-4xl lg:text-5xl font-bold mb-6">Let's build something <span class="text-primary italic">extraordinary</span> together</h2>
+        <p class="text-muted-foreground text-lg mb-8 max-w-lg">
+          I'm always open to discussing innovative projects, AI research, or full-stack engineering opportunities.
+        </p>
+        
+        <div class="space-y-6">
+          <a href="mailto:ayush.kumar.sahoo10@gmail.com" class="flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-all duration-300">
+              <Mail class="h-5 w-5" />
+            </div>
+            <div>
+              <p class="text-xs text-muted-foreground uppercase tracking-widest">Email</p>
+              <p class="text-sm font-medium">ayush.kumar.sahoo10@gmail.com</p>
+            </div>
+          </a>
+
+          <div class="flex gap-4 pt-4">
+            <a href="https://github.com/AyushSahoo19" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all">
+              <Github class="h-4 w-4" />
+            </a>
+            <a href="https://www.linkedin.com/in/ayush-kumar-sahoo-984a65307/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all">
+              <Linkedin class="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-card border border-border/50 rounded-3xl p-8 lg:p-12 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+        <div class="relative z-10">
+          <h3 class="text-2xl font-bold mb-6">Direct Message</h3>
+          <form class="space-y-4">
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <label class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Name</label>
+                <input type="text" placeholder="Your name" class="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors" />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Email</label>
+                <input type="email" placeholder="Your email" class="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors" />
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Subject</label>
+              <input type="text" placeholder="Project inquiry" class="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors" />
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Message</label>
+              <textarea placeholder="Tell me about your idea..." rows="4" class="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary text-background font-bold py-4 rounded-xl hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+              Send Message
+              <ExternalLink class="h-4 w-4" />
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

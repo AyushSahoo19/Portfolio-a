@@ -1,0 +1,235 @@
+---
+import { Github, ExternalLink } from 'lucide-react';
+
+const applications = [
+  {
+    title: "LibOS",
+    description: "The Ultimate Library — A curated, minimalist directory representing the absolute best repositories, tools, frameworks, and workflows for modern developers and innovators.",
+    problem: "Fragmented engineering resources and high-noise developer environments",
+    solution: "A centralized, high-signal repository engine with curated collections",
+    tools: ["Next.js", "Radix UI", "Tailwind CSS", "Lucide Icons", "GitHub API"],
+    metrics: ["Curated Collections", "Minimalist UX", "Repo Engine"],
+    github: "https://github.com/AyushSahoo19/LibOS",
+    live: "https://lib-os.vercel.app/",
+    image: "https://s.wordpress.com/mshots/v1/https://lib-os.vercel.app/?w=1200",
+    domain: "Engineering",
+    topic: "Playbooks",
+    subject: "Automation",
+  },
+  {
+    title: "Lumina",
+    description: "Curated Discovery — Your minimal digital workspace for seamless exploration and high-end resource organization.",
+    problem: "Digital clutter and lack of editorial-grade discovery tools",
+    solution: "A bespoke workspace with Bento-grid layouts and dual-layer filtering",
+    tools: ["Vanilla JS", "Tailwind CSS", "HTML5", "Lucide Icons", "Thum.io API"],
+    metrics: ["Editorial UX", "Seamless Exploration", "Bento Layout"],
+    github: "https://github.com/AyushSahoo19/Lumina",
+    live: "https://lumina-six-xi.vercel.app/",
+    image: "https://s.wordpress.com/mshots/v1/https://lumina-six-xi.vercel.app/?w=1200",
+    domain: "Productivity",
+    topic: "Dashboard",
+    subject: "UX/UI",
+  },
+  {
+    title: "Polymath (Eng-10X)",
+    description: "Master Anything — An advanced educational platform covering AI, ML, Quantum Computing, Neurology, and Quantum ML.",
+    problem: "Lack of structured, high-level roadmaps for complex engineering domains",
+    solution: "Interactive lifecycle matrices and multi-domain engineering roadmaps",
+    tools: ["Next.js 15", "React 19", "Tailwind CSS 4.0", "Framer Motion", "Vercel"],
+    metrics: ["Multi-Domain", "Advanced Roadmaps", "Motion Design"],
+    github: "https://github.com/AyushSahoo19/ENG-10X",
+    live: "https://eng-10-x.vercel.app/",
+    image: "https://s.wordpress.com/mshots/v1/https://eng-10-x.vercel.app/?w=1200",
+    domain: "Education",
+    topic: "Polymathy",
+    subject: "Engineering",
+  },
+];
+
+const domains = Array.from(new Set(applications.map((app) => app.domain)));
+const topics = Array.from(new Set(applications.map((app) => app.topic)));
+const subjects = Array.from(new Set(applications.map((app) => app.subject)));
+---
+
+<section id="applications" class="min-h-screen py-20 px-6 lg:px-16 bg-muted/30">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+      <p class="text-primary text-sm font-medium mb-2 tracking-wider uppercase">Full-Stack Applications</p>
+      <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+        Building products that
+        <br />
+        <span class="text-primary">solve real problems</span>
+      </h2>
+      <p class="text-muted-foreground text-lg max-w-2xl">
+        Production-ready applications delivering value to users across research, education, and business domains.
+      </p>
+    </div>
+
+    {/* Filters - Unified Layout */}
+    <div class="mb-12 flex flex-wrap items-center gap-3">
+      <span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Filter:</span>
+      
+      <div class="flex flex-wrap gap-2">
+        <button class="filter-btn active px-3 py-1 rounded-full text-xs font-medium transition-all bg-primary text-primary-foreground" data-type="domain" data-filter="all">All Domains</button>
+        {domains.map(domain => (
+          <button class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-all bg-background border border-border hover:border-primary" data-type="domain" data-filter={domain}>{domain}</button>
+        ))}
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        <button class="filter-btn active px-3 py-1 rounded-full text-xs font-medium transition-all bg-primary text-primary-foreground" data-type="topic" data-filter="all">All Topics</button>
+        {topics.map(topic => (
+          <button class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-all bg-background border border-border hover:border-primary" data-type="topic" data-filter={topic}>{topic}</button>
+        ))}
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        <button class="filter-btn active px-3 py-1 rounded-full text-xs font-medium transition-all bg-primary text-primary-foreground" data-type="subject" data-filter="all">All Subjects</button>
+        {subjects.map(subject => (
+          <button class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-all bg-background border border-border hover:border-primary" data-type="subject" data-filter={subject}>{subject}</button>
+        ))}
+      </div>
+    </div>
+
+    <div class="space-y-12" id="apps-container">
+      {applications.map((app, index) => (
+        <div
+          class={`app-card group grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "lg:grid-flow-dense" : ""}`}
+          data-domain={app.domain}
+          data-topic={app.topic}
+          data-subject={app.subject}
+        >
+          {/* Image */}
+          <div class={`relative ${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
+            <div class="relative overflow-hidden rounded-2xl border border-border/50 group-hover:border-primary/50 transition-all duration-300">
+              <img src={app.image || "/placeholder.svg"} alt={app.title} class="w-full h-auto" />
+              <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+          </div>
+
+          {/* Content */}
+          <div class={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
+            <h3 class="text-3xl font-bold mb-4 group-hover:text-primary transition-colors">{app.title}</h3>
+            <p class="text-muted-foreground mb-6 leading-relaxed">{app.description}</p>
+
+            {/* Problem & Solution */}
+            <div class="space-y-3 mb-6">
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 w-1 bg-red-500/50 rounded-full" />
+                <div>
+                  <p class="text-sm font-medium text-red-500">Problem</p>
+                  <p class="text-sm text-muted-foreground">{app.problem}</p>
+                </div>
+              </div>
+              <div class="flex gap-3">
+                <div class="flex-shrink-0 w-1 bg-primary rounded-full" />
+                <div>
+                  <p class="text-sm font-medium text-primary">Solution</p>
+                  <p class="text-sm text-muted-foreground">{app.solution}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Tools */}
+            <div class="mb-6">
+              <p class="text-sm font-medium mb-2">Tech Stack:</p>
+              <div class="flex flex-wrap gap-2">
+                {app.tools.map((tool) => (
+                  <span class="text-xs px-3 py-1 bg-background border border-border rounded-full">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Metrics */}
+            <div class="grid grid-cols-3 gap-4 mb-6">
+              {app.metrics.map((metric) => (
+                <div class="text-center p-3 bg-card border border-border/50 rounded-lg">
+                  <p class="text-xs text-muted-foreground">{metric}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Links */}
+            <div class="flex gap-4">
+              <a
+                href={app.github}
+                class="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Github class="h-4 w-4" />
+                View Code
+              </a>
+              <a
+                href={app.live}
+                class="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <ExternalLink class="h-4 w-4" />
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+      <div id="no-apps-message" class="hidden text-center py-12">
+        <p class="text-muted-foreground text-lg">No applications match the selected filters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.app-card');
+  const noAppsMessage = document.getElementById('no-apps-message');
+
+  const activeFilters = {
+    domain: 'all',
+    topic: 'all',
+    subject: 'all'
+  };
+
+  function updateFilters() {
+    let visibleCount = 0;
+    cards.forEach(card => {
+      const cardDomain = card.getAttribute('data-domain');
+      const cardTopic = card.getAttribute('data-topic');
+      const cardSubject = card.getAttribute('data-subject');
+
+      const matchesDomain = activeFilters.domain === 'all' || activeFilters.domain === cardDomain;
+      const matchesTopic = activeFilters.topic === 'all' || activeFilters.topic === cardTopic;
+      const matchesSubject = activeFilters.subject === 'all' || activeFilters.subject === cardSubject;
+
+      if (matchesDomain && matchesTopic && matchesSubject) {
+        (card as HTMLElement).style.display = 'grid';
+        visibleCount++;
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+
+    if (noAppsMessage) {
+      noAppsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.getAttribute('data-type') as keyof typeof activeFilters;
+      const filter = btn.getAttribute('data-filter');
+      
+      // Update active filter state
+      activeFilters[type] = filter || 'all';
+
+      // Update button styles for this type
+      document.querySelectorAll(`.filter-btn[data-type="${type}"]`).forEach(b => {
+        b.classList.remove('bg-primary', 'text-primary-foreground', 'active');
+        b.classList.add('bg-background', 'border', 'border-border');
+      });
+      btn.classList.add('bg-primary', 'text-primary-foreground', 'active');
+      btn.classList.remove('bg-background', 'border', 'border-border');
+
+      updateFilters();
+    });
+  });
+</script>
