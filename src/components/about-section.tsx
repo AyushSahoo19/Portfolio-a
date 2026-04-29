@@ -96,8 +96,11 @@ export function AboutSection() {
           <p>
             My journey spans across multiple cutting-edge domains:{" "}
             <span className="text-foreground font-semibold border-b border-primary/30">AI and RAG systems</span>,{" "}
-            <span className="text-foreground font-semibold border-b border-primary/30">quantum computing</span>,{" "}
-            <span className="text-foreground font-semibold border-b border-primary/30">quantum finance</span>, and{" "}
+            <span className="text-foreground font-semibold border-b border-primary/30">AI agents and automation workflows</span>,{" "}
+            <span className="text-foreground font-semibold border-b border-primary/30">backend engineering</span>,{" "}
+            <span className="text-foreground font-semibold border-b border-primary/30">Spring Boot applications</span>,{" "}
+            <span className="text-foreground font-semibold border-b border-primary/30">Java</span>,{" "}
+            <span className="text-foreground font-semibold border-b border-primary/30">quantum computing</span>, and{" "}
             <span className="text-foreground font-semibold border-b border-primary/30">quantum machine learning</span>. I've
             designed a <span className="italic text-foreground">highly classified ecosystem and framework</span> to
             accelerate my learning and research.
