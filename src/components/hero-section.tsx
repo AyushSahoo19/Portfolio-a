@@ -37,7 +37,7 @@ const webApplications = [
 
 export function HeroSection() {
   return (
-    <section id="intro" className="min-h-screen flex flex-col items-start justify-center px-6 lg:px-24 pt-32 bg-background relative overflow-hidden">
+    <section id="intro" className="min-h-screen lg:min-h-screen flex flex-col items-start justify-center px-6 lg:px-24 pt-16 lg:pt-32 bg-background relative overflow-hidden">
       {/* Subtle Background Glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[120px] -z-10 -ml-32" />
 
