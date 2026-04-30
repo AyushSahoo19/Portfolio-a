@@ -44,7 +44,7 @@ export function HeroSection() {
       </div>
       
       <div className="max-w-4xl w-full">
-        <h1 className="text-6xl lg:text-7xl font-bold mb-8 leading-tight text-foreground">
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-8 leading-tight text-foreground">
           I turn ideas into{" "}
           <span className="relative inline-block">
             <span className="italic">meaningful</span>

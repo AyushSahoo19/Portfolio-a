@@ -7,7 +7,7 @@ export function ContactSection() {
       <div className="max-w-5xl w-full mx-auto">
         <div className="text-center mb-16">
           <h3 className="text-sm font-mono text-primary mb-4 uppercase tracking-wider">Contact</h3>
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6">Let's build something amazing</h2>
+          <h2 className="text-4xl lg:text-6xl font-bold mb-6">Let's build something amazing</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             I'm always open to discussing new projects, innovative ideas, research collaborations, or opportunities to
             be part of groundbreaking work.

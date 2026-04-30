@@ -127,7 +127,7 @@ export function AboutSection() {
             <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-primary" />
           </h3>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-8">
             {interests.map((section, idx) => (
               <div key={idx} className="space-y-3">
                 <h4 className="text-xs font-semibold text-muted-foreground/60 uppercase tracking-widest mb-4">

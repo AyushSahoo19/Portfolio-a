@@ -167,7 +167,7 @@ const stageIcons: any = {
             {/* Development Stages */}
             <div>
               <h4 class="text-sm font-semibold text-foreground mb-4">Development Stages</h4>
-              <div class="flex items-center gap-2">
+              <div class="flex flex-wrap items-center gap-2">
                 {project.stages.map((stage, index) => {
                   const Icon = stageIcons[stage];
                   const isCompleted = index < project.currentStage;
