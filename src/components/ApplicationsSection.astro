@@ -75,7 +75,7 @@ const subjects = Array.from(new Set(applications.map((app) => app.subject)));
         <span class="text-primary">solve real problems</span>
       </h2>
       <p class="text-muted-foreground text-lg max-w-2xl">
-        Production-ready applications delivering value to users across research, education, and business domains.
+        End-to-end engineering where I personally <span class="text-foreground font-medium">architected the full technology stack</span> and <span class="text-foreground font-medium">designed the entire UI/UX</span> to deliver production-ready solutions across research, education, and business domains.
       </p>
     </div>
 
@@ -127,8 +127,10 @@ const subjects = Array.from(new Set(applications.map((app) => app.subject)));
 
           {/* Content */}
           <div class={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
-            <div class="flex items-center justify-between mb-4">
+            <div class="flex flex-wrap items-center gap-3 mb-4">
               <span class="text-xs font-mono text-primary uppercase tracking-widest">{app.domain}</span>
+              <span class="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-tighter border-l border-border/50 pl-3">UI/UX & Stack Architecture</span>
+              <div class="flex-1"></div>
               <a 
                 href={app.live} 
                 target="_blank" 
