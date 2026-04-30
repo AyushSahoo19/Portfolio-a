@@ -49,7 +49,7 @@ export function HeroSection() {
           <div className="relative w-12 h-12 rounded-full overflow-hidden border border-border group-hover:border-primary/50 transition-colors shadow-lg">
             <div className="absolute inset-0 bg-primary/10 animate-pulse group-hover:bg-transparent" />
             <img 
-              src="/ayush_raw.jpeg" 
+              src="/ayush_pro.png" 
               alt="Ayush Kumar Sahoo" 
               className="relative w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
