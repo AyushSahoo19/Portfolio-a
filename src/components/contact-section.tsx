@@ -26,13 +26,29 @@ export function ContactSection() {
             </a>
           </div>
 
-          <div className="border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 bg-card/50 backdrop-blur-sm text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
+          <div className="border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 bg-card/50 backdrop-blur-sm flex flex-col items-center text-center group">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6 group-hover:scale-110 transition-transform duration-300">
               <MessageSquare className="h-8 w-8 text-primary" />
             </div>
             <h3 className="text-xl font-bold mb-2">Schedule a Call</h3>
-            <p className="text-muted-foreground mb-4">Let's discuss your project or idea in detail</p>
-            <Button className="bg-primary text-background hover:bg-primary/90 rounded-full px-6">Book a meeting</Button>
+            <p className="text-sm text-muted-foreground mb-6">Detailed technical discussions or strategy sessions</p>
+            
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
+              {["AI Strategy", "System Design", "Innovation", "Career"].map(topic => (
+                <span key={topic} className="px-3 py-1 rounded-full bg-background border border-border text-[10px] font-bold text-muted-foreground uppercase tracking-tighter">
+                  {topic}
+                </span>
+              ))}
+            </div>
+
+            <Button className="w-full bg-primary text-background hover:bg-primary/90 rounded-full px-6 mb-4 font-bold shadow-lg shadow-primary/20">
+              Book a meeting
+            </Button>
+            
+            <div className="flex items-center gap-2 text-[10px] text-muted-foreground">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              Usually responds within 12-24 hours
+            </div>
           </div>
         </div>
 
