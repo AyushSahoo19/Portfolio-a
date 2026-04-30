@@ -196,7 +196,7 @@ const stageIcons: any = {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h4 class="text-xs font-semibold text-muted-foreground uppercase mb-2">Problem Solved</h4>
-                <p class="text-sm text-foreground/80">{project.problemSolved}</p>
+                <p class="text-sm text-foreground">{project.problemSolved}</p>
               </div>
               <div>
                 <h4 class="text-xs font-semibold text-muted-foreground uppercase mb-2">Status</h4>
@@ -223,7 +223,7 @@ const stageIcons: any = {
               <h4 class="text-xs font-semibold text-muted-foreground uppercase mb-3">Key Features</h4>
               <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {project.features.map((feature) => (
-                  <li class="text-sm text-foreground/80 flex items-start gap-2">
+                  <li class="text-sm text-foreground flex items-start gap-2">
                     <span class="text-primary mt-1">•</span>
                     {feature}
                   </li>
@@ -246,7 +246,7 @@ const stageIcons: any = {
             {/* Documentation & Code */}
             <div>
               <h4 class="text-xs font-semibold text-muted-foreground uppercase mb-3">Links & Documentation</h4>
-              <p class="text-sm text-foreground/80 mb-4">{project.documentation}</p>
+              <p class="text-sm text-foreground mb-4">{project.documentation}</p>
               <div class="flex flex-wrap gap-3">
                 <a
                   href={project.url}
@@ -308,11 +308,11 @@ const stageIcons: any = {
       const domain = btn.getAttribute('data-domain');
       
       filterBtns.forEach(b => {
-        b.classList.remove('bg-primary', 'text-black', 'font-semibold');
-        b.classList.add('bg-white/5', 'text-gray-300', 'border', 'border-white/10');
+        b.classList.remove('bg-primary', 'text-primary-foreground', 'font-semibold');
+        b.classList.add('bg-card', 'text-muted-foreground', 'border', 'border-border');
       });
-      btn.classList.add('bg-primary', 'text-black', 'font-semibold');
-      btn.classList.remove('bg-white/5', 'text-gray-300', 'border', 'border-white/10');
+      btn.classList.add('bg-primary', 'text-primary-foreground', 'font-semibold');
+      btn.classList.remove('bg-card', 'text-muted-foreground', 'border', 'border-border');
 
       projectCards.forEach(card => {
         const cardDomain = card.getAttribute('data-domain');

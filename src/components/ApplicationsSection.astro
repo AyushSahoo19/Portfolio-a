@@ -129,7 +129,7 @@ const subjects = Array.from(new Set(applications.map((app) => app.subject)));
           <div class={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
             <div class="flex flex-wrap items-center gap-3 mb-4">
               <span class="text-xs font-mono text-primary uppercase tracking-widest">{app.domain}</span>
-              <span class="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-tighter border-l border-border/50 pl-3">UI/UX & Stack Architecture</span>
+              <span class="text-[10px] font-bold text-muted-foreground uppercase tracking-tighter border-l border-border/50 pl-3">UI/UX & Stack Architecture</span>
               <div class="flex-1"></div>
               <a 
                 href={app.live} 

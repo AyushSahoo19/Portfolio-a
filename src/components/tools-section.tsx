@@ -262,7 +262,7 @@ export function ToolsSection() {
             </p>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-full">
-            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">Always Learning</span>
           </div>
         </div>
@@ -305,10 +305,10 @@ export function ToolsSection() {
                               className="w-full h-full object-contain opacity-80 group-hover/item:opacity-100 transition-opacity" 
                             />
                           </div>
-                          <span className="text-sm font-bold text-foreground/80 group-hover/item:text-primary transition-colors">{tool.name}</span>
+                          <span className="text-sm font-bold text-foreground group-hover/item:text-primary transition-colors">{tool.name}</span>
                         </div>
                         {tool.useCase && (
-                          <p className="text-[10px] text-muted-foreground/60 leading-tight pl-11">
+                          <p className="text-[10px] text-muted-foreground leading-tight pl-11">
                             {tool.useCase}
                           </p>
                         )}

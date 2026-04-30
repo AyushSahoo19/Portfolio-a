@@ -84,18 +84,18 @@ export function ProjectsShowcaseSection() {
   const filteredProjects = selectedDomain === "All" ? projects : projects.filter((p) => p.domain === selectedDomain)
 
   return (
-    <section id="projects-showcase" className="min-h-screen flex items-center px-6 lg:px-12 py-24">
+    <section id="projects-showcase" className="min-h-screen flex items-center px-6 lg:px-12 py-24 bg-background">
       <div className="max-w-5xl w-full">
-        <h2 className="text-3xl font-bold mb-4 text-white relative inline-block">
+        <h2 className="text-3xl font-bold mb-4 text-foreground relative inline-block">
           All Projects
           <span className="absolute -bottom-2 left-0 w-20 h-0.5 bg-primary" />
         </h2>
-        <p className="text-gray-400 text-sm mb-8">
+        <p className="text-muted-foreground text-sm mb-8">
           Detailed breakdown of projects with code, documentation, and development stages
         </p>
 
         <div className="mb-8 flex flex-wrap items-center gap-2">
-          <span className="text-xs font-semibold text-gray-400 uppercase">Filter by domain:</span>
+          <span className="text-xs font-semibold text-muted-foreground uppercase">Filter by domain:</span>
           <div className="flex flex-wrap gap-2">
             {domains.map((domain) => (
               <button
@@ -103,8 +103,8 @@ export function ProjectsShowcaseSection() {
                 onClick={() => setSelectedDomain(domain)}
                 className={`text-xs px-3 py-1.5 rounded-full transition-all ${
                   selectedDomain === domain
-                    ? "bg-primary text-black font-semibold"
-                    : "bg-white/5 text-gray-300 border border-white/10 hover:border-primary/30"
+                    ? "bg-primary text-primary-foreground font-semibold"
+                    : "bg-card text-muted-foreground border border-border hover:border-primary/30"
                 }`}
               >
                 {domain}
@@ -118,21 +118,21 @@ export function ProjectsShowcaseSection() {
             filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="border border-white/10 rounded-lg overflow-hidden hover:border-primary/30 transition-colors"
+                className="border border-border/50 rounded-lg overflow-hidden hover:border-primary/30 transition-colors bg-card/30"
               >
                 {/* Project Header */}
                 <button
                   onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
-                  className="w-full p-6 flex items-start justify-between hover:bg-white/5 transition-colors"
+                  className="w-full p-6 flex items-start justify-between hover:bg-muted/50 transition-colors"
                 >
                   <div className="flex-1 text-left">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-lg font-bold text-white">{project.title}</h3>
+                      <h3 className="text-lg font-bold text-foreground">{project.title}</h3>
                       <span className="text-xs px-2 py-1 rounded bg-primary/20 text-primary border border-primary/30">
                         {project.category}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-400">{project.description}</p>
+                    <p className="text-sm text-muted-foreground">{project.description}</p>
                   </div>
                   <ChevronDown
                     className={`h-5 w-5 text-primary transition-transform flex-shrink-0 ml-4 ${
@@ -143,11 +143,11 @@ export function ProjectsShowcaseSection() {
 
                 {/* Project Details */}
                 {expandedProject === project.id && (
-                  <div className="border-t border-white/10 p-6 bg-white/2 space-y-6">
+                  <div className="border-t border-border/50 p-6 bg-muted/20 space-y-6">
                     {/* Development Stages */}
                     <div>
-                      <h4 className="text-sm font-semibold text-white mb-4">Development Stages</h4>
-                      <div className="flex items-center gap-2">
+                      <h4 className="text-sm font-semibold text-foreground mb-4">Development Stages</h4>
+                      <div className="flex flex-wrap items-center gap-2">
                         {project.stages.map((stage, index) => {
                           const Icon = stageIcons[stage as keyof typeof stageIcons]
                           const isCompleted = index < project.currentStage
@@ -158,13 +158,13 @@ export function ProjectsShowcaseSection() {
                                 className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all ${
                                   isCompleted || isCurrent
                                     ? "bg-primary/20 border-primary text-primary"
-                                    : "border-white/20 text-gray-500"
+                                    : "border-border text-muted-foreground"
                                 }`}
                               >
                                 <Icon className="h-4 w-4" />
                               </div>
                               {index < project.stages.length - 1 && (
-                                <div className={`h-0.5 w-8 mx-1 ${isCompleted ? "bg-primary" : "bg-white/10"}`} />
+                                <div className={`h-0.5 w-8 mx-1 ${isCompleted ? "bg-primary" : "bg-border"}`} />
                               )}
                             </div>
                           )
@@ -175,18 +175,18 @@ export function ProjectsShowcaseSection() {
                     {/* Problem & Solution */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <h4 className="text-xs font-semibold text-gray-400 uppercase mb-2">Problem Solved</h4>
-                        <p className="text-sm text-gray-300">{project.problemSolved}</p>
+                        <h4 className="text-xs font-semibold text-muted-foreground uppercase mb-2">Problem Solved</h4>
+                        <p className="text-sm text-foreground">{project.problemSolved}</p>
                       </div>
                       <div>
-                        <h4 className="text-xs font-semibold text-gray-400 uppercase mb-2">Status</h4>
+                        <h4 className="text-xs font-semibold text-muted-foreground uppercase mb-2">Status</h4>
                         <p className="text-sm text-primary font-medium">{project.status}</p>
                       </div>
                     </div>
 
                     {/* Tools & Technologies */}
                     <div>
-                      <h4 className="text-xs font-semibold text-gray-400 uppercase mb-3">Tools & Technologies</h4>
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase mb-3">Tools & Technologies</h4>
                       <div className="flex flex-wrap gap-2">
                         {project.tools.map((tool) => (
                           <span
@@ -201,10 +201,10 @@ export function ProjectsShowcaseSection() {
 
                     {/* Features */}
                     <div>
-                      <h4 className="text-xs font-semibold text-gray-400 uppercase mb-3">Key Features</h4>
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase mb-3">Key Features</h4>
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {project.features.map((feature) => (
-                          <li key={feature} className="text-sm text-gray-300 flex items-start gap-2">
+                          <li key={feature} className="text-sm text-foreground flex items-start gap-2">
                             <span className="text-primary mt-1">•</span>
                             {feature}
                           </li>
@@ -213,27 +213,27 @@ export function ProjectsShowcaseSection() {
                     </div>
 
                     {/* Front Page Showcase */}
-                    <div className="relative aspect-video w-full rounded-lg overflow-hidden border border-white/10 group-hover:border-primary/50 transition-all">
+                    <div className="relative aspect-video w-full rounded-lg overflow-hidden border border-border group-hover:border-primary/50 transition-all">
                       <img 
                         src={`https://s.wordpress.com/mshots/v1/${project.url}?w=1200`} 
                         alt={`${project.title} Preview`}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                        <p className="text-white text-xs font-medium">Click View Live Site to explore</p>
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <p className="text-foreground text-xs font-medium">Click View Live Site to explore</p>
                       </div>
                     </div>
 
                     {/* Documentation & Code */}
                     <div>
-                      <h4 className="text-xs font-semibold text-gray-400 uppercase mb-3">Links & Documentation</h4>
-                      <p className="text-sm text-gray-300 mb-4">{project.documentation}</p>
+                      <h4 className="text-xs font-semibold text-muted-foreground uppercase mb-3">Links & Documentation</h4>
+                      <p className="text-sm text-foreground mb-4">{project.documentation}</p>
                       <div className="flex flex-wrap gap-3">
                         <a
                           href={project.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-black hover:bg-primary/90 transition-colors text-sm font-bold"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-bold shadow-lg shadow-primary/20"
                         >
                           <Globe className="h-4 w-4" />
                           View Live Site
@@ -255,7 +255,7 @@ export function ProjectsShowcaseSection() {
             ))
           ) : (
             <div className="text-center py-12">
-              <p className="text-gray-400">No projects found in this domain</p>
+              <p className="text-muted-foreground">No projects found in this domain</p>
             </div>
           )}
         </div>

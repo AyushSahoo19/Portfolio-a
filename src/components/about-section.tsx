@@ -91,7 +91,7 @@ export function AboutSection() {
         <div className="space-y-6 text-muted-foreground leading-relaxed text-lg mb-16">
           <p>
             I'm a <span className="text-foreground font-semibold">Software Engineer at Tata Steel</span> and the{" "}
-            <span className="text-foreground font-semibold underline decoration-primary/30 hover:decoration-primary transition-all">
+            <span className="text-foreground font-semibold underline decoration-primary hover:decoration-primary transition-all">
               <a href="https://eng-10-x.vercel.app/" target="_blank" rel="noopener noreferrer">
                 Founder of <span className="text-primary">Eng-10X</span>
               </a>
@@ -100,13 +100,13 @@ export function AboutSection() {
           </p>
           <p>
             My journey spans across multiple cutting-edge domains:{" "}
-            <span className="text-foreground font-semibold border-b border-primary/30">AI and RAG systems</span>,{" "}
-            <span className="text-foreground font-semibold border-b border-primary/30">AI agents and automation workflows</span>,{" "}
-            <span className="text-foreground font-semibold border-b border-primary/30">backend engineering</span>,{" "}
-            <span className="text-foreground font-semibold border-b border-primary/30">Spring Boot applications</span>,{" "}
-            <span className="text-foreground font-semibold border-b border-primary/30">Java</span>,{" "}
-            <span className="text-foreground font-semibold border-b border-primary/30">quantum computing</span>, and{" "}
-            <span className="text-foreground font-semibold border-b border-primary/30">quantum machine learning</span>. I've
+            <span className="text-foreground font-semibold border-b border-primary">AI and RAG systems</span>,{" "}
+            <span className="text-foreground font-semibold border-b border-primary">AI agents and automation workflows</span>,{" "}
+            <span className="text-foreground font-semibold border-b border-primary">backend engineering</span>,{" "}
+            <span className="text-foreground font-semibold border-b border-primary">Spring Boot applications</span>,{" "}
+            <span className="text-foreground font-semibold border-b border-primary">Java</span>,{" "}
+            <span className="text-foreground font-semibold border-b border-primary">quantum computing</span>, and{" "}
+            <span className="text-foreground font-semibold border-b border-primary">quantum machine learning</span>. I've
             designed a <span className="italic text-foreground">highly classified ecosystem and framework</span> to
             accelerate my learning and research.
           </p>
@@ -130,7 +130,7 @@ export function AboutSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-8">
             {interests.map((section, idx) => (
               <div key={idx} className="space-y-3">
-                <h4 className="text-xs font-semibold text-muted-foreground/60 uppercase tracking-widest mb-4">
+                <h4 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-4">
                   {section.category}
                 </h4>
                 <div className="space-y-2">
