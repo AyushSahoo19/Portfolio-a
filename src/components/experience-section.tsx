@@ -13,6 +13,11 @@ const experiences = [
     link: "https://tatasteel.com",
     projects: [
       {
+        name: "Haul Road Analysis System (High-Impact)",
+        description: "Automated haul road undulation and steep gradient detection system. Centralized cloud deployment saving ₹1-4 crore in 3 years by optimizing critical mine transportation infrastructure.",
+        tools: ["Python", "Google Cloud Platform (GCP)", "Cloud Python Environment", "Automation"],
+      },
+      {
         name: "Steel Production Optimization System",
         description: "AI-powered system for optimizing steel production processes",
         tools: ["Python", "TensorFlow", "React", "PostgreSQL"],
@@ -21,11 +26,6 @@ const experiences = [
         name: "Enterprise Data Dashboard",
         description: "Real-time analytics dashboard for production metrics",
         tools: ["React", "Node.js", "MongoDB", "D3.js"],
-      },
-      {
-        name: "Supply Chain Management Platform",
-        description: "Full-stack application for supply chain tracking",
-        tools: ["Next.js", "Python", "PostgreSQL", "Redis"],
       },
     ],
   },
