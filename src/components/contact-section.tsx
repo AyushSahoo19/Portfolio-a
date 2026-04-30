@@ -21,9 +21,20 @@ export function ContactSection() {
             </div>
             <h3 className="text-xl font-bold mb-2">Email</h3>
             <p className="text-muted-foreground mb-4">For professional inquiries and collaborations</p>
-            <a href="mailto:ayush.kumar.sahoo10@gmail.com" className="text-primary hover:underline font-semibold">
-              ayush.kumar.sahoo10@gmail.com
-            </a>
+            <div className="flex flex-col items-center gap-2">
+              <a href="mailto:ayush.kumar.sahoo10@gmail.com" className="text-primary hover:underline font-semibold text-lg">
+                ayush.kumar.sahoo10@gmail.com
+              </a>
+              <button 
+                onClick={() => {
+                  navigator.clipboard.writeText("ayush.kumar.sahoo10@gmail.com");
+                  alert("Email copied to clipboard!");
+                }}
+                className="text-[10px] uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+              >
+                <span>Click to copy</span>
+              </button>
+            </div>
           </div>
 
           <div className="border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 bg-card/50 backdrop-blur-sm flex flex-col items-center text-center group">
@@ -41,8 +52,13 @@ export function ContactSection() {
               ))}
             </div>
 
-            <Button className="w-full bg-primary text-background hover:bg-primary/90 rounded-full px-6 mb-4 font-bold shadow-lg shadow-primary/20">
-              Book a meeting
+            <Button 
+              asChild
+              className="w-full bg-primary text-background hover:bg-primary/90 rounded-full px-6 mb-4 font-bold shadow-lg shadow-primary/20"
+            >
+              <a href="mailto:ayush.kumar.sahoo10@gmail.com?subject=Meeting%20Request%20-%20[Topic]&body=Hi%20Ayush,%0D%0A%0D%0AI'd%20like%20to%20schedule%20a%20meeting%20to%20discuss%20[Topic].%0D%0A%0D%0AMy%20preferred%20time%20slots%20are:%0D%0A1.%20[Date/Time]%0D%0A2.%20[Date/Time]%0D%0A%0D%0ALooking%20forward%20to%20connecting!">
+                Book a meeting
+              </a>
             </Button>
             
             <div className="flex items-center gap-2 text-[10px] text-muted-foreground">
